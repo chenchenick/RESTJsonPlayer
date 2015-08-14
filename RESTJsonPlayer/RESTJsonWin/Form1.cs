@@ -18,7 +18,7 @@ namespace RESTJsonWin
         {
             InitializeComponent();
 
-            _ServerTxt.Text = "http://192.168.16.202:9200";
+            _ServerTxt.Text = "http://192.168.16.201:9200";
 
             string[] methodData = new string[] { "GET", "PUT", "POST", "DELETE", "HEAD" };
             _MethodCbx.DataSource = methodData;
@@ -51,7 +51,13 @@ namespace RESTJsonWin
 
         private string Post()
         {
-            throw new NotImplementedException();
+            using (var client = new WebClient())
+            {
+                Uri serverUri = new Uri(_ServerTxt.Text.Trim());
+                Uri desUri = new Uri(serverUri, _PathTxt.Text.Trim());
+                string data = _BodyTxt.Text.Trim();
+                return client.UploadStringWithoutException(desUri, "POST", data);
+            }
         }
 
         private string Head()
@@ -61,8 +67,6 @@ namespace RESTJsonWin
                 Uri serverUri = new Uri(_ServerTxt.Text.Trim());
                 Uri desUri = new Uri(serverUri, _PathTxt.Text.Trim());
                 string data = _BodyTxt.Text.Trim();
-                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(desUri);
-                request.Method = "HEAD";
                 return client.UploadStringWithoutException(desUri, "HEAD", data);
             }
         }
@@ -85,8 +89,6 @@ namespace RESTJsonWin
                 Uri serverUri = new Uri(_ServerTxt.Text.Trim());
                 Uri desUri = new Uri(serverUri, _PathTxt.Text.Trim());
                 string data = _BodyTxt.Text.Trim();
-                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(desUri);
-                request.Method = "PUT";
                 return client.UploadStringWithoutException(desUri, "PUT", data);
             }
         }
