@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTJsonWin", "RESTJsonPlayer\RESTJsonWin\RESTJsonWin.csproj", "{18F1996E-5D5D-4B21-9DC0-E4A9E2EDCB4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticTools", "ElasticTools\ElasticTools.csproj", "{8A25DE71-AC12-42AD-8867-321889D4C4CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{18F1996E-5D5D-4B21-9DC0-E4A9E2EDCB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18F1996E-5D5D-4B21-9DC0-E4A9E2EDCB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18F1996E-5D5D-4B21-9DC0-E4A9E2EDCB4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A25DE71-AC12-42AD-8867-321889D4C4CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A25DE71-AC12-42AD-8867-321889D4C4CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A25DE71-AC12-42AD-8867-321889D4C4CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A25DE71-AC12-42AD-8867-321889D4C4CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

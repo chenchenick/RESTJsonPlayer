@@ -68,6 +68,7 @@
             this._BodyTxt.Location = new System.Drawing.Point(12, 96);
             this._BodyTxt.Multiline = true;
             this._BodyTxt.Name = "_BodyTxt";
+            this._BodyTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this._BodyTxt.Size = new System.Drawing.Size(522, 351);
             this._BodyTxt.TabIndex = 3;
             // 

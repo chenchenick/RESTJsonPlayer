@@ -25,3 +25,11 @@ C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\obj
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\obj\Debug\RESTJsonWin.csproj.GenerateResource.Cache
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\obj\Debug\RESTJsonWin.exe
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\obj\Debug\RESTJsonWin.pdb
+C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Elasticsearch.Net.dll
+C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Nest.dll
+C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Newtonsoft.Json.dll
+C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Elasticsearch.Net.pdb
+C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Elasticsearch.Net.xml
+C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Nest.pdb
+C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Nest.xml
+C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Newtonsoft.Json.xml
