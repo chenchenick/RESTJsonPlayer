@@ -9,6 +9,7 @@ namespace ElasticTools
     [TestFixture]
     public class UnitTest1
     {
+        [Test]
         public void InitializeIndex()
         {
             var client = GetClient();
@@ -24,6 +25,7 @@ namespace ElasticTools
             Assert.IsTrue(existenceResult.ConnectionStatus.Success);
         }
 
+        [Test]
         public void DeleteIndex()
         {
             var client = GetClient();
@@ -93,22 +95,26 @@ namespace ElasticTools
             var request = new UpdateSettingsRequest();
             request.Index = indexName;
             request.Analysis = new AnalysisSettings();
-            request.Analysis.Analyzers.Add("content", new CustomAnalyzer()
-                        {
-                            Tokenizer = "kuromoji_tokenizer",
-                            Filter = new List<string>() { "kuromoji_baseform" }
-                        });
+            //request.Analysis.Analyzers.Add("content", new CustomAnalyzer()
+            //            {
+            //                Tokenizer = "kuromoji_tokenizer",
+            //                Filter = new List<string>() { "kuromoji_baseform" }
+            //            });
 
-            request.Analysis.TokenFilters.Add("myfilter", new MyTokenFilter()
-            {
-                UseRomaji = false
-            });
-
-            request.Analysis.Analyzers.Add("content", new CustomAnalyzer()
-            {
-                Tokenizer = "mytokenizer",
-                Filter = new List<string>() { "kuromoji_baseform" }
-            });
+            //request.Analysis.TokenFilters.Add("myfilter", new MyTokenFilter()
+            //{
+            //    UseRomaji = false
+            //});
+            request.Analysis.Analyzers.Add("cnanalyzer", new KuromojiAnalyzer());
+            //request.Analysis.Analyzers.Add("cnanalyzer", new CustomAnalyzer()
+            //{
+            //    Tokenizer = "smartcn_tokenizer"
+            //    //,Filter = new List<string>() { "kuromoji_baseform" }
+            //});
+            //request.Analysis.Tokenizers.Add("mytokenizer", new MyTokenizer()
+            //{
+            //    Mode = "search"
+            //});
 
             var response = client.UpdateSettings(request);
             Assert.IsTrue(response.Acknowledged);
@@ -120,16 +126,16 @@ namespace ElasticTools
         public void TryAnalyze()
         {
             UpdateSettingsAnalysis();
-            //string data = "５２０人が犠牲になった１９８５年の日航ジャンボ機墜落事故から３０年となった１２日、墜落現場「御巣鷹の尾根」（群馬県上野村）の麓にある「慰霊の園」で追悼慰霊式が営まれ、遺族や日本航空の大西賢会長ら３５６人が参列した";
             //string data = "東京スカイツリー";
             string data = "関西国際空港";
+            //string data = "命令行提示太花哨，用掉太多窗口空间";
             var client = GetClient();
             var newSettings = client.GetIndexSettings(s => s.Index(indexName));
-            Assert.AreEqual(1, newSettings.IndexSettings.Analysis.Analyzers.Count);
+            //Assert.AreEqual(1, newSettings.IndexSettings.Analysis.Analyzers.Count);
 
             var result = client.Analyze(a => a
                 .Index(indexName)
-                .Analyzer("content")
+                .Analyzer("cnanalyzer")
                 .Text(data));
             Assert.IsNotNull(result.Tokens);
         }

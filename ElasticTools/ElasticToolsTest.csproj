@@ -86,6 +86,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="KuromojiAnalyzer.cs" />
     <Compile Include="MyAnalyzer.cs" />
     <Compile Include="MyTokenFilter.cs" />
     <Compile Include="MyTokenizer.cs" />

@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace ElasticTools
 {
-    public class MyAnalyzer : AnalyzerBase
+    public class KuromojiAnalyzer : AnalyzerBase
     {
-        public MyAnalyzer()
+        public KuromojiAnalyzer()
             : base()
         {
-            Type = "smartcn";
+            Type = "kuromoji";
         }
+
     }
 }
