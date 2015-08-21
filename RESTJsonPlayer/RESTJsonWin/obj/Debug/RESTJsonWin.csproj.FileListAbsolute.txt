@@ -19,7 +19,6 @@ C:\Users\chenchen\Documents\Visual Studio 2012\Projects\RESTJsonPlayer\RESTJsonP
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\RESTJsonWin.exe.config
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\RESTJsonWin.exe
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\RESTJsonWin.pdb
-C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\obj\Debug\RESTJsonWin.csprojResolveAssemblyReference.cache
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\obj\Debug\RESTJsonWin.Form1.resources
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\obj\Debug\RESTJsonWin.Properties.Resources.resources
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\obj\Debug\RESTJsonWin.csproj.GenerateResource.Cache
@@ -33,3 +32,4 @@ C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Nest.pdb
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Nest.xml
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Newtonsoft.Json.xml
+C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\obj\Debug\RESTJsonWin.csprojResolveAssemblyReference.cache

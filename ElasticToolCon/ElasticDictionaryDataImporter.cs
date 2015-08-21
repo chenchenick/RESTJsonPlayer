@@ -11,23 +11,29 @@ namespace ElasticToolCon
     {
         private string ServerUrl;
         private string IndexName;
-        private string DataPath;
+        public IEnumerable<TranslationMemory> TranslationMemories { get; set; }
 
-        public ElasticDictionaryDataImporter(string url, string index, string path)
+        public ElasticDictionaryDataImporter(string url, string index)
         {
             this.ServerUrl = url;
             this.IndexName = index;
-            this.DataPath = path;
         }
 
         public void Execute()
         {
+            if (TranslationMemories == null)
+                throw new ArgumentNullException("No data to import, please set TranslationMemories property first.");
+
             // create client connection
             var node = new Uri(ServerUrl);
-            var conn = new ConnectionSettings(node);
+            var conn = new ConnectionSettings(node, this.IndexName);
             var client = new ElasticClient(conn);
 
-
+            foreach (TranslationMemory tm in TranslationMemories)
+            {
+                var indexResult = client.Index(tm);
+                Console.Write(indexResult);
+            }
         }
     }
 }

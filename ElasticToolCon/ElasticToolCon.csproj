@@ -57,12 +57,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="ElasticDictionaryDataImporter.cs" />
     <Compile Include="KuromojiAnalyzer.cs" />
     <Compile Include="KuromojiRomajiTokenFilter.cs" />
     <Compile Include="KuromojiTokenizer.cs" />
     <Compile Include="SmartCnAnalyzer.cs" />
-    <Compile Include="TranslationPieceType.cs" />
+    <Compile Include="TranslationMemoryXmlParser.cs" />
+    <Compile Include="TranslationMemory.cs" />
     <Compile Include="ElasticDictionaryInitializer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
