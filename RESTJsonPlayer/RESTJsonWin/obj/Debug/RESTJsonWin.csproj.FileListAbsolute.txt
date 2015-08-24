@@ -32,4 +32,3 @@ C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Nest.pdb
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Nest.xml
 C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\bin\Debug\Newtonsoft.Json.xml
-C:\Users\chenchen\Documents\GitHub\RESTJsonPlayer\RESTJsonPlayer\RESTJsonWin\obj\Debug\RESTJsonWin.csprojResolveAssemblyReference.cache
