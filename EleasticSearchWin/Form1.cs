@@ -21,7 +21,7 @@ namespace EleasticSearchWin
             InitializeComponent();
 
             // create client connection
-            string server = "http://localhost:9200";
+            string server = "http://192.168.1.7:9200";
             string index = "elasticdictionary";
             var node = new Uri(server);
             var conn = new ConnectionSettings(node, index);
@@ -42,25 +42,64 @@ namespace EleasticSearchWin
                                     .Query(keyword)
                                     )
                                 )
+                            .Highlight(h => h
+                                .OnFields(f => f.OnField(ff => ff.japanese)
+                                    )
+                                )
                             );
-            textBox2.Text = ToString(result);
+            SetResutToTextBox(result);
 
         }
 
-        private string ToString(ISearchResponse<TranslationMemory> result)
+        private string SetResutToTextBox(ISearchResponse<TranslationMemory> result)
         {
+            this.richTextBox1.Clear();
+            this.richTextBox1.BackColor = Color.Black;
+            this.richTextBox1.ForeColor = Color.Green;
             string resultStr = string.Empty;
             if (result == null)
                 return resultStr;
 
-            foreach (TranslationMemory doc in result.Documents)
+            foreach (var hit in result.Hits)
             {
-                resultStr += doc.japanese + Environment.NewLine;
-                resultStr += doc.chinese + Environment.NewLine;
-                resultStr += "***************************************" + Environment.NewLine;
+                var id = hit.Id;
+                var highlightedStr = result.Highlights[id].First().Value.Highlights.First();
+                var doc = hit.Source;
+                this.richTextBox1.AppendHighlightedText(highlightedStr, Color.LightSkyBlue);
+                this.richTextBox1.AppendText(Environment.NewLine);
+                this.richTextBox1.AppendText(doc.chinese);
+                this.richTextBox1.AppendText(Environment.NewLine);
+                this.richTextBox1.AppendText("-----------------------------------------------------------------------------------------------------");
+                this.richTextBox1.AppendText(Environment.NewLine);
             }
 
             return resultStr;
+        }
+
+    }
+
+    public static class RichTextBoxExtensions
+    {
+        public static void AppendHighlightedText(this RichTextBox box, string text, Color color)
+        {
+            int startindex = text.IndexOf("<em>");
+            if (startindex == -1)
+            {
+                box.AppendText(text);
+                return;
+            }
+            string piece = text.Substring(0, startindex);
+            text = text.Substring(startindex + 4);
+            box.AppendText(piece);
+            int endindex = text.IndexOf("</em>");
+            piece = text.Substring(0, endindex);
+            box.SelectionStart = box.TextLength;
+            box.SelectionLength = 0;
+            box.SelectionColor = color;
+            box.AppendText(piece);
+            box.SelectionColor = box.ForeColor;
+            text = text.Substring(endindex + 5);
+            box.AppendHighlightedText(text, color);
         }
     }
 }

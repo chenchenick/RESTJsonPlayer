@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTJsonWin", "RESTJsonPlayer\RESTJsonWin\RESTJsonWin.csproj", "{18F1996E-5D5D-4B21-9DC0-E4A9E2EDCB4D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticToolsTest", "ElasticTools\ElasticToolsTest.csproj", "{8A25DE71-AC12-42AD-8867-321889D4C4CF}"
@@ -8,6 +10,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticToolCon", "ElasticToolCon\ElasticToolCon.csproj", "{428ACFA9-AE87-405C-BB17-0F081165D5CB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EleasticSearchWin", "EleasticSearchWin\EleasticSearchWin.csproj", "{DE641658-DE4B-4AFC-A5E5-B2965119B270}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{39E2B75C-E7B4-4B3E-8CF1-F425E0B41174}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

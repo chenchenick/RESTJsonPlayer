@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,8 @@ namespace ElasticToolCon
             foreach (var data in xmlData.Items.AsEnumerable())
             {
                 TranslationMemory tm = new TranslationMemory();
-                tm.id = Convert.ToInt32(data.id);
+                tm.tmid = Convert.ToInt32(data.id);
+                tm.tmname = Path.GetFileName(this.XmlFilePath);
                 tm.japanese = data.source_segment;
                 tm.chinese = data.target_segment;
                 tm.tags += data.creation_date + Environment.NewLine;

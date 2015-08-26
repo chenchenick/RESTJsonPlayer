@@ -22,7 +22,7 @@ namespace ElasticToolCon
         public IEnumerable<TranslationMemory> Parse()
         {
             List<TranslationMemory> result = new List<TranslationMemory>();
-            string connstr = @"data source=C:\Users\chenchen\Downloads\NW_MECHANICS.sdltm; Version=3;";
+            string connstr = @"data source=" + sourcePath + "; Version=3;";
             using (var m_dbConnection = new SQLiteConnection(connstr))
             {
                 m_dbConnection.Open();
@@ -41,10 +41,12 @@ namespace ElasticToolCon
         private TranslationMemory ReadTranslationMemory(SQLiteDataReader reader)
         {
             TranslationMemory tm = new TranslationMemory();
-            tm.id = reader.GetInt32(0); // id
-            tm.chinese = GetSegmentFromXml(reader.GetString(4)); // source_segment
-            tm.japanese = GetSegmentFromXml(reader.GetString(6)); // target_segment
-            tm.tags = reader.GetString(9) + reader.GetString(8); // user + date
+            tm.tmid = reader.GetInt32(0); // tmid used for update
+            tm.japanese = GetSegmentFromXml(reader.GetString(4)); // source_segment
+            tm.chinese = GetSegmentFromXml(reader.GetString(6)); // target_segment
+            tm.tags += reader.GetString(8) + Environment.NewLine; // user
+            tm.tags += reader.GetString(9) + Environment.NewLine; // date
+            tm.tmname = Path.GetFileName(this.sourcePath);
             return tm;
         }
 

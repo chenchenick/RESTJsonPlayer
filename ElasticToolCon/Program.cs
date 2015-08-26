@@ -10,13 +10,31 @@ namespace ElasticToolCon
     {
         static void Main(string[] args)
         {
-            string server = "http://localhost:9200";
+            string server = "http://192.168.1.7:9200";
             string index = "elasticdictionary";
 
             //InitializeIndex(server, index);
-            ImportXmlData(server, index);
+            //ImportXmlData(server, index);
+            string[] paths = new string[] {
+                @"C:\Users\corsica\Dropbox\TRADOS_DATA\Translation Memories\NW_MECHANICS.sdltm",
+                @"C:\Users\corsica\Dropbox\TRADOS_DATA\Translation Memories\CC_MECHANICS.sdltm",
+                @"C:\Users\corsica\Dropbox\TRADOS_DATA\Translation Memories\LOCAL_MECHANICS.sdltm"
+            };
+            foreach (var path in paths)
+                ImportSqliteData(server, index, path);
         }
 
+        private static void InitializeIndex(string server, string index)
+        {
+            ElasticDictionaryInitializer e = new ElasticDictionaryInitializer(server, index);
+            e.Execute();
+        }
+
+        /// <summary>
+        /// used to import less than 5k tm db
+        /// </summary>
+        /// <param name="server"></param>
+        /// <param name="index"></param>
         private static void ImportXmlData(string server, string index)
         {
             string path = @"C:\Users\chenchen\Downloads\NW_MECHANICS_00000_0000.xml";
@@ -29,10 +47,15 @@ namespace ElasticToolCon
             Console.Write(importer);
         }
 
-        private static void InitializeIndex(string server, string index)
+        private static void ImportSqliteData(string server, string index, string path)
         {
-            ElasticDictionaryInitializer e = new ElasticDictionaryInitializer(server, index);
-            e.Execute();
+            TranslationMemorySqliteParser e = new TranslationMemorySqliteParser(path);
+            var sqliteData = e.Parse();
+
+            ElasticDictionaryDataImporter importer = new ElasticDictionaryDataImporter(server, index);
+            importer.TranslationMemories = sqliteData;
+            importer.Execute();
+            Console.Write(importer);
         }
     }
 }
